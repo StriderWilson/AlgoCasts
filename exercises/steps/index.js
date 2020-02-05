@@ -17,26 +17,45 @@
 //       '### '
 //       '####'
 
-function steps(n) {
-    var space = '';
-
-    for (var i = 0; i < n; i++) {
-        space += ' ';
+function steps(n, row = 0, stair = '') {
+    if (row === n) {
+        return;
     }
 
-    for (var i = 1; i <= n; i++) {
-        console.log(createStair(i) + space.slice(i));
+    if (n === stair.length) {
+        console.log(stair)
+        steps(n, row + 1);
+        return;
     }
-}
 
-const createStair = function(n) {
-    var stair = '';
-
-    for (var i = 0; i < n; i++) {
+    if (stair.length <= row) {
         stair += '#';
+    } else {
+        stair += ' ';
     }
-
-    return stair;
+    steps(n, row, stair);
 }
 
 module.exports = steps;
+
+// function steps(n) {
+//     var space = '';
+
+//     for (var i = 0; i < n; i++) {
+//         space += ' ';
+//     }
+
+//     for (var i = 1; i <= n; i++) {
+//         console.log(createStair(i) + space.slice(i));
+//     }
+// }
+
+// const createStair = function(n) {
+//     var stair = '';
+
+//     for (var i = 0; i < n; i++) {
+//         stair += '#';
+//     }
+
+//     return stair;
+// }
