@@ -17,6 +17,26 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+function steps(n) {
+    var space = '';
+
+    for (var i = 0; i < n; i++) {
+        space += ' ';
+    }
+
+    for (var i = 1; i <= n; i++) {
+        console.log(createStair(i) + space.slice(i));
+    }
+}
+
+const createStair = function(n) {
+    var stair = '';
+
+    for (var i = 0; i < n; i++) {
+        stair += '#';
+    }
+
+    return stair;
+}
 
 module.exports = steps;
