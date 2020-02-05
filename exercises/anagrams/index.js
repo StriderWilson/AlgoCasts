@@ -22,11 +22,7 @@ function anagrams(stringA, stringB) {
     .sort()
     .join('');
 
-    if (stringA === stringB) {
-        return true;
-    };
-
-    return false;
+    return stringA === stringB;
 }
 
 // function anagrams(stringA, stringB) {
