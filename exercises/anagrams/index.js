@@ -9,25 +9,46 @@
 //   anagrams('Hi there', 'Bye there') --> False
 
 function anagrams(stringA, stringB) {
-    stringA = stringA.replace(/[^\w]/g, "").toLowerCase();
-    stringB = stringB.replace(/[^\w]/g, "").toLowerCase();
-    if (stringA.length !== stringB.length) {
-        return false;
-    }
-    var objA = {};
-    var objB = {};
-    for (char of stringA) {
-         objA[char] = objA[char] + 1 || 1;
-    }
-    for (char of stringB) {
-        objB[char] = objB[char] + 1 || 1;
-    }
-    for (let char in objA) {
-        if (objA[char] !== objB[char]) {
-           return false;
-        }
-    }
-    return true;
+    stringA = stringA
+    .replace(/[^\w]/g, "")
+    .toLowerCase()
+    .split('')
+    .sort()
+    .join('');
+    stringB = stringB
+    .replace(/[^\w]/g, "")
+    .toLowerCase()
+    .split('')
+    .sort()
+    .join('');
+
+    if (stringA === stringB) {
+        return true;
+    };
+
+    return false;
 }
+
+// function anagrams(stringA, stringB) {
+    // stringA = stringA.replace(/[^\w]/g, "").toLowerCase();
+    // stringB = stringB.replace(/[^\w]/g, "").toLowerCase();
+//     if (stringA.length !== stringB.length) {
+//         return false;
+//     }
+//     var objA = {};
+//     var objB = {};
+//     for (char of stringA) {
+//          objA[char] = objA[char] + 1 || 1;
+//     }
+//     for (char of stringB) {
+//         objB[char] = objB[char] + 1 || 1;
+//     }
+//     for (let char in objA) {
+//         if (objA[char] !== objB[char]) {
+//            return false;
+//         }
+//     }
+//     return true;
+// }
 
 module.exports = anagrams;
